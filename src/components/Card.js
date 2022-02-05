@@ -1,9 +1,8 @@
 import React from "react";
 import imgUser from "../images/avatars/image-ramsesmiron.png";
-import data from "../data.json";
 
-export default function Card() {
-  const comment = data.comments[0].content;
+export default function Card({ content }) {
+  console.log("content", content)
   return (
     <div className="card">
       <header className="card-header">
@@ -14,7 +13,7 @@ export default function Card() {
       </header>
 
       <section className="card-body">
-        <p><span className="card-tag">@ramsesmiron</span>{comment}</p>
+        <p><span className="card-tag">@ramsesmiron</span>{content}</p>
       </section>
 
 

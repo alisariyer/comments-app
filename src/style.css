@@ -32,8 +32,10 @@ body {
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    min-height: calc(var(--rem) * 7);
+    grid-template-columns: auto auto auto;
+    grid-template-rows: minmax(calc(var(--rem) * 1.5), auto);
     gap: calc(var(--rem));
     background-color: var(--c-very-light-gray);
     border-radius: calc(var(--rem) * .5);
@@ -42,6 +44,7 @@ body {
 }
 
 .card-header {
+    grid-area: 1 / 1 / 2 / span 3;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -66,7 +69,7 @@ body {
     padding: calc(var(--rem) * .2) calc(var(--rem) * .5);
     border-radius: calc(var(--rem) * .2);
     font-weight: var(--fw-medium);
-    display: none;
+    /* display: none; */
 }
 
 .visible {
@@ -79,6 +82,7 @@ body {
 }
 
 .card-body {
+    grid-area: 2 / 1 / 3 / span 3;
     line-height: 1.3;
 }
 
@@ -86,10 +90,12 @@ body {
     font-weight: var(--fw-medium);
     color: var(--c-moderate-blue);
     padding-right: calc(var(--rem) * .5);
-    display: none;
+    /* display: none; */
 }
 
+
 .card-vote {
+    grid-area: 3 / 1 / 4 / 2;
     background-color: var(--c-light-gray);
     border-radius: calc(var(--rem) * .7);
 }
@@ -112,7 +118,7 @@ body {
     font-weight: var(--fw-medium);
 }
 
-.card-footer, .card-modify, .card-vote, .card-reply, .card-delete {
+.card-modify, .card-vote, .card-reply, .card-delete {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,6 +133,7 @@ body {
 }
 
 .card-modify {
+    grid-area: 3 / 3 / 4 / 4;
     gap: calc(var(--rem) * 1.2);
 }
 
@@ -157,4 +164,30 @@ body {
 
 .card-reply:hover svg>path {
     fill: var(--c-light-grayish-blue);
+}
+
+@media screen and (min-width: 800px) {
+    .card-header {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .card-body {
+        grid-area: 2 / 2 / 4 / 4;
+        line-height: 1.3;
+    }
+
+    .card-vote {
+        grid-area: 1 / 1 / 4 / 2;
+        flex-direction: column;
+    }
+
+    .card-modify {
+        grid-area: 1 / 3 / 2 / 4;
+        justify-content: flex-end;
+    }
+
+    .card-vote * {
+        padding: calc(var(--rem)) calc(var(--rem) * 1.3) ;
+    }
+
 }

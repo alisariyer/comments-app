@@ -17,7 +17,7 @@ export default function Card() {
         <p><span className="card-tag">@ramsesmiron</span>{comment}</p>
       </section>
 
-      <footer className="card-footer">
+
         <div className="card-vote">
           <span className="card-up">+</span>
           <span className="card-number">1</span>
@@ -43,7 +43,7 @@ export default function Card() {
             <span>Reply</span>
           </div>
         </div>
-      </footer>
+
     </div>
   );
 }

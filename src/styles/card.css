@@ -1,5 +1,13 @@
+/**********************************************************************
+                            CARD STYLING
+***********************************************************************/
+
+/*
+Card styling for each commnt section
+Use grid display because of specific changing between desktop and mobile ui
+===========================================================================*/
+
 .card {
-    /* Use grid in order to manage bottom to left, bottom to up lacation changins */
     display: grid;
     min-height: calc(var(--rem) * 7);
     grid-template-columns: auto auto auto;
@@ -11,9 +19,13 @@
     margin-bottom: calc(var(--rem) * 2);
 }
 
+/*
+Use to push a little if a reply of comment
+===========================================================================*/
+
 .offset {
     border-left: 2px solid var(--c-light-grayish-blue);
-    padding-left: calc(var(--rem) * 3.4);
+    padding-left: calc(var(--rem) * 1.8);
     margin-left: 0;
 }
 
@@ -35,7 +47,9 @@
     font-size: calc(var(--rem) * 1.6);
 }
 
-/* By default display: none */
+/*
+display: none by default, use visible class to show
+===========================================================================*/
 .card-me {
     text-transform: lowercase;
     background-color: var(--c-moderate-blue);
@@ -47,7 +61,6 @@
     display: none;
 }
 
-/* Use to make visible delete, edit etc. elements */
 .visible {
     display: block;
 }
@@ -62,7 +75,10 @@
     line-height: 1.3;
 }
 
-/* By default display: none */
+/*
+display: none by default, use visible class to show
+===========================================================================*/
+
 .card-tag {
     font-weight: var(--fw-medium);
     color: var(--c-moderate-blue);
@@ -102,7 +118,7 @@
 }
 
 .card-up, .card-down, .card-number, .card-delete, .card-reply, svg>path {
-    transition: color .5s, fill .5s;
+    transition: color var(--delay), fill var(--delay);
 }
 
 .card-delete, .card-reply {
@@ -114,7 +130,10 @@
     gap: calc(var(--rem) * 1.2);
 }
 
-/* By default display: none */
+/*
+display: none by default, use visible class to show
+===========================================================================*/
+
 .card-delete {
     font-weight: var(--fw-medium);
     color: var(--c-soft-red);
@@ -144,7 +163,62 @@
     fill: var(--c-light-grayish-blue);
 }
 
-@media screen and (min-width: 800px) {
+/**********************************************************************
+                     ADD COMMENT SECTION STYLING
+***********************************************************************/
+
+/* 
+Use grid display of card class
+===========================================================================*/
+.card-input {
+    grid-area: 1 / 1 / 3 / 4;
+    padding: calc(var(--rem));
+    padding-left: calc(var(--rem) * 1.8);
+    border: 1px solid var(--c-light-gray);
+    border-radius: calc(var(--rem) * .7);
+    min-height: calc(var(--rem) * 10);
+    resize: vertical;
+    font-family: inherit;
+    color: var(--c-grayish-blue);
+    font-size: inherit;
+    transition: border var(--delay);
+}
+
+.card-input:active, .card-input:focus {
+    border-color: var(--c-moderate-blue);
+}
+
+.card-img-grid {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.card-btn {
+    grid-area: 3 / 3 / 4 / 4;
+    justify-self: end;
+    background-color: var(--c-moderate-blue);
+    border-radius: calc(var(--rem) * .7);
+    color: var(--c-white);
+    border: none;
+    cursor: pointer;
+    font-size: calc(var(--rem) * 1.5);
+    font-weight: var(--fw-medium);
+    width: calc(var(--rem) * 10);
+    height: calc(var(--rem) * 4);
+    transition: background-color var(--delay);
+}
+
+.card-btn:active, .card-btn:focus, .card-btn:hover {
+    background-color: var(--c-light-grayish-blue);
+}
+
+/**********************************************************************
+                ONE BREAKPOINT FOR RESPONSIVE SUPPORT
+***********************************************************************/
+
+@media screen and (min-width: 890px) {
+    :root {
+        --rem: 1rem;
+    }
     .card {
         gap: calc(var(--rem) * 1.2) calc(var(--rem) * 1.4);
     }
@@ -175,6 +249,19 @@
 
     .card-vote * {
         padding: calc(var(--rem)) calc(var(--rem) * 1.3) ;
+    }
+
+    .card-input {
+        grid-area: 1 / 2 / 4 / 3;
+        width: calc(var(--rem) * 60);
+    }
+    
+    .card-img-grid {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    
+    .card-btn {
+        grid-area: 1 / 3 / 2 / 4;
     }
 
 }

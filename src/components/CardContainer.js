@@ -3,7 +3,6 @@ import Card from "./Card";
 import data from "../data.json";
 
 export default function CardContainer() {
-  console.log(data.comments);
   const cards = data.comments.map((comment) => {
     return (
       <>

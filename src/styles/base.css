@@ -16,14 +16,16 @@
     --fw-regular: 400;
     --fw-medium: 500;
     --fw-bold: 700;
+    --delay: .3s;
     font-size: 62.5%;
 
     /* To use resize elements by this reference - Responsive Design */
-    --rem: 1rem;
+    --rem: .9rem;
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
+    outline: none;
 }
 
 body, h1, h2, h3, p {
@@ -40,5 +42,5 @@ body {
 
 .container {
     margin: 0 auto;
-    max-width: calc(var(--rem) * 100); 
+    max-width: calc(var(--rem) * 80); 
 }

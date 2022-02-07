@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "./Card";
-import data from "../data.json";
 
-export default function CardContainer() {
+export default function CardContainer({data, handleData}) {
 
   const cards = data.comments.map((comment) => {
+
     return (
       <div key={comment.id}>
         <Card key={comment.id} comment={comment}/>
@@ -18,6 +18,7 @@ export default function CardContainer() {
       </div>
     );
   });
+
   return (
     <section>
       {cards}

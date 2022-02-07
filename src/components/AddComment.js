@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function AddComment() {
+export default function AddComment({ data, handleData }) {
+
   return (
     <div className="card">
         <textarea className="card-input" placeholder="Add a comment"/>

@@ -3,20 +3,24 @@ import Card from "./Card";
 import data from "../data.json";
 
 export default function CardContainer() {
+
   const cards = data.comments.map((comment) => {
     return (
-      <>
-        <Card key={comment.id} content={comment.content} />
+      <div key={comment.id}>
+        <Card key={comment.id} comment={comment}/>
         <div className="offset">
-          {console.log(comment)}
-        {comment.replies.length > 0 &&
-          comment.replies.map((subComment) => (
-            <Card key={subComment.id} content={subComment.content} />
-          ))
-        }
+          {comment.replies.length > 0 &&
+            comment.replies.map((reply) => (
+              <Card key={reply.id} comment={reply}/>
+            ))
+          }
         </div>
-      </>
+      </div>
     );
   });
-  return <section>{cards}</section>;
+  return (
+    <section>
+      {cards}
+    </section>
+  );
 }

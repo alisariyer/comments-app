@@ -1,14 +1,17 @@
 import React from "react";
-import imgUser from "../images/avatars/image-ramsesmiron.png";
 
-export default function Card({ content }) {
+export default function Card({ comment }) {
+  console.log(comment);
+  const { content, createdAt, score, user } = comment;
+  const image = user.image.png;
+  const username = user.username;
   return (
     <div className="card">
       <header className="card-header">
-        <img src={imgUser} alt="" className="card-img" />
-        <h3 className="card-user">username</h3>
+        <img src={image} alt="" className="card-img" />
+        <h3 className="card-user">{username}</h3>
         <span className="card-me">You</span>
-        <span className="card-date">2 days ago</span>
+        <span className="card-date">{createdAt}</span>
       </header>
 
       <section className="card-body">
@@ -18,7 +21,7 @@ export default function Card({ content }) {
 
         <div className="card-vote">
           <span className="card-up">+</span>
-          <span className="card-number">1</span>
+          <span className="card-number">{score}</span>
           <span className="card-down">-</span>
         </div>
         <div className="card-modify">

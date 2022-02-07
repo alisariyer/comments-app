@@ -25,10 +25,14 @@ export default function App() {
     localStorage.setItem('data', JSON.stringify(data))
   }
 
+  const handleVote = (vote, id) => {
+    console.log(vote, 'id' , id);
+  }
+
   return (
     <div className="container">
       {/* <Modal /> */}
-      <CardContainer data={data} handleData={handleData}/>
+      <CardContainer data={data} handleData={handleData} handleVote={handleVote}/>
       <AddComment data={data} handleData={handleData}/>
     </div>
   );

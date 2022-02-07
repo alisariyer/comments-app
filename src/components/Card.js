@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Card({ comment, currentUser }) {
+export default function Card({ comment, currentUser, handleVote }) {
 
-  const { content, createdAt, score, user } = comment;
+  const { content, createdAt, score, user, id } = comment;
   const image = user.image.png;
   const username = user.username;
 
@@ -39,9 +39,9 @@ export default function Card({ comment, currentUser }) {
       </section>
 
       <div className="card-vote">
-        <span className="card-up">+</span>
+        <span className="card-up" role="button" onClick={() => handleVote(1, id)}>+</span>
         <span className="card-number">{score}</span>
-        <span className="card-down">-</span>
+        <span className="card-down" role="button" onClick={() => handleVote(-1, id)}>-</span>
       </div>
       <div className="card-modify">
         {deleteButton}

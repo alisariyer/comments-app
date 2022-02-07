@@ -34,7 +34,9 @@
     }
 
     .card-vote * {
-        padding: calc(var(--rem)) calc(var(--rem) * 1.3) ;
+        width: calc(var(--rem) * 3.6);
+        height: calc(var(--rem) * 2.5);
+        /* padding: calc(var(--rem)) calc(var(--rem) * 1.3) ; */
     }
 
     .card-input {

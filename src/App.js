@@ -9,6 +9,8 @@ import Modal from "./components/Modal";
 import defaultData from "./data.json";
 
 export default function App() {
+
+  // Check localStorage if contains data object text version otherwise set in default json object in form of string
   const getData = () => {
     const data = JSON.parse(localStorage.getItem("data"));
     if (!data) {
@@ -19,6 +21,7 @@ export default function App() {
   };
 
   const [data, setData] = useState(getData());
+  
   const handleData = (data) => {
     setData(data);
     localStorage.setItem("data", JSON.stringify(data));
@@ -41,7 +44,7 @@ export default function App() {
           'score': comments[i].score + vote
         }
 
-        // After changing comments set in data object
+        // After changing comments set in data object and return it then so render page
         setData((data) => {
           return {
             ...data,

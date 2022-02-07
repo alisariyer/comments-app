@@ -81,7 +81,11 @@ Use to push a little if a reply of comment
 }
 
 .card-vote * {
-    padding: calc(var(--rem)) calc(var(--rem) * 1.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--rem) * 3.6);
+    width: calc(var(--rem) * 3);
 }
 
 .card-up, .card-down{

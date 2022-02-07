@@ -10,7 +10,7 @@ import Modal from "./components/Modal";
 export default function App() {
   return (
     <div className="container">
-      <Modal />
+      {/* <Modal /> */}
       <CardContainer />
       <AddComment />
     </div>

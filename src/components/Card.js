@@ -2,7 +2,6 @@ import React from "react";
 import imgUser from "../images/avatars/image-ramsesmiron.png";
 
 export default function Card({ content }) {
-  console.log("content", content)
   return (
     <div className="card">
       <header className="card-header">

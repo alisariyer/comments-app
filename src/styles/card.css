@@ -248,7 +248,7 @@ Use grid display of card class
 
     .card-input {
         grid-area: 1 / 2 / 4 / 3;
-        width: calc(var(--rem) * 60);
+        width: calc(var(--rem) * 44);
     }
     
     .card-img-grid {

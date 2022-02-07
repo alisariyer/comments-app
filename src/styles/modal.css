@@ -15,7 +15,7 @@
 .modal section {
     max-width: calc(var(--rem) * 36);
     margin: calc(var(--rem) * 1.5);
-    padding: calc(var(--rem) * 1.8);
+    padding: calc(var(--rem) * 2.5);
     background-color: var(--c-white);
     border-radius: calc(var(--rem) * .7);
 }
@@ -37,8 +37,9 @@
 }
 
 .modal-footer button {
-    padding: calc(var(--rem))  calc(var(--rem) * 2);
+    padding: calc(var(--rem) * 1.5)  calc(var(--rem) * 2.2);
     color: var(--c-white);
+    font-size: calc(var(--rem) * 1.7);
     font-weight: var(--fw-regular); 
 }
 

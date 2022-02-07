@@ -54,5 +54,5 @@ button, a {
 
 .container {
     margin: 0 auto;
-    max-width: calc(var(--rem) * 80); 
+    max-width: calc(var(--rem) * 65); 
 }

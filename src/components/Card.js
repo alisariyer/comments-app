@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Card({ comment, currentUser, handleVote }) {
+export default function Card({ comment, currentUser, handleVote, handleDelete }) {
 
   const { content, createdAt, score, user, id } = comment;
   const image = user.image.png;
@@ -9,7 +9,7 @@ export default function Card({ comment, currentUser, handleVote }) {
   const youSpan = currentUser.username === username ? (<span className="card-me">You</span>) : '';
 
   const deleteButton = currentUser.username === username ? (
-    <div className="card-delete">
+    <div className="card-delete" role="button" onClick={() => handleDelete(id)}>
           <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z"
@@ -39,9 +39,9 @@ export default function Card({ comment, currentUser, handleVote }) {
       </section>
 
       <div className="card-vote">
-        <span className="card-up" role="button" onClick={() => handleVote(1, id)}>+</span>
+        <span className="card-up" role="button" onClick={() => handleVote(id, 1)}>+</span>
         <span className="card-number">{score}</span>
-        <span className="card-down" role="button" onClick={() => handleVote(-1, id)}>-</span>
+        <span className="card-down" role="button" onClick={() => handleVote(id, -1)}>-</span>
       </div>
       <div className="card-modify">
         {deleteButton}

@@ -47,9 +47,6 @@ Use to push a little if a reply of comment
     font-size: calc(var(--rem) * 1.6);
 }
 
-/*
-display: none by default, use visible class to show
-===========================================================================*/
 .card-me {
     text-transform: lowercase;
     background-color: var(--c-moderate-blue);
@@ -58,11 +55,6 @@ display: none by default, use visible class to show
     padding: calc(var(--rem) * .2) calc(var(--rem) * .5);
     border-radius: calc(var(--rem) * .2);
     font-weight: var(--fw-medium);
-    display: none;
-}
-
-.visible {
-    display: block;
 }
 
 .card-date, .card-body {
@@ -75,15 +67,10 @@ display: none by default, use visible class to show
     line-height: 1.3;
 }
 
-/*
-display: none by default, use visible class to show
-===========================================================================*/
-
 .card-tag {
     font-weight: var(--fw-medium);
     color: var(--c-moderate-blue);
     padding-right: calc(var(--rem) * .5);
-    display: none;
 }
 
 
@@ -130,14 +117,9 @@ display: none by default, use visible class to show
     gap: calc(var(--rem) * 1.2);
 }
 
-/*
-display: none by default, use visible class to show
-===========================================================================*/
-
 .card-delete {
     font-weight: var(--fw-medium);
     color: var(--c-soft-red);
-    display: none;
 }
 
 .card-delete:hover {

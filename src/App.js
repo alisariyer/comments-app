@@ -21,7 +21,7 @@ export default function App() {
   };
 
   const [data, setData] = useState(getData());
-  
+
   const handleData = (data) => {
     setData(data);
     localStorage.setItem("data", JSON.stringify(data));
@@ -51,6 +51,45 @@ export default function App() {
             'comments': comments,
           };
         });
+
+        // Update also localStorage
+        localStorage.setItem("data", JSON.stringify(data));
+        break;
+
+        // If id is not targeted, search in 
+      } else {
+        // If the current array has no reply pass the next
+        if (comments[i].replies.length === 0) continue;
+        
+        // Check now replies
+        for (let j = 0; j < comments[i].replies.length; j++) {
+          console.log(comments[i].replies[j])
+          if (comments[i].replies[j].id === id) {
+            console.log('else');  
+    
+            // If score is 0 and user click minus button do not make changing
+            if (comments[i].replies[j].score === 0 && vote === -1) break;
+    
+            // Otherwise change score value
+            comments[i].replies[j] = {
+              ...comments[i].replies[j],
+              'score': comments[i].replies[j].score + vote
+            }
+            
+            // After changing comments set in data object and return it then so render page
+            setData((data) => {
+              return {
+                ...data,
+                'comments': comments,
+              };
+            });
+    
+            // Update also localStorage
+            localStorage.setItem("data", JSON.stringify(data));
+            break;
+
+          }
+        }
       }
     }
   };

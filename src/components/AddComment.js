@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function AddComment({ data, handleData }) {
+export default function AddComment({ currentUser, addComment }) {
 
-  const currentUserImage = data.currentUser.image.png;
+  const currentUserImage = currentUser.image.png;
+
+  const [comment, setComment] = useState('');
+
+  const handleInput = (e) => {
+    setComment(e.target.value);
+  }
 
   return (
-    <div className="card">
-        <textarea className="card-input" placeholder="Add a comment"/>
+    <form action="#" className="card" onSubmit={(e) => e.preventDefault()}>
+        <textarea className="card-input" placeholder="Add a comment" value={comment} onChange={handleInput}/>
         <img src={currentUserImage} alt="" className="card-img card-img-grid" />
-        <button type="button" className="card-btn">SEND</button>
-    </div>
+        <button type="submit" className="card-btn" onClick={() => addComment(comment)}>SEND</button>
+    </form>
   )
 }

@@ -189,6 +189,6 @@ Use grid display of card class
     height: calc(var(--rem) * 4);
 }
 
-.card-btn:active, .card-btn:focus, .card-btn:hover {
+.card-btn:active, .card-btn:hover {
     background-color: var(--c-light-grayish-blue);
 }

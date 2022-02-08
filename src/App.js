@@ -102,16 +102,20 @@ export default function App() {
     }
   };
 
+  // addComment is to add a new comment with currentUser
+  const addComment = (comment) => {
+    console.log(comment);
+  }
+
   return (
     <div className="container">
       {/* <Modal /> */}
       <CardContainer
         data={data}
-        handleData={handleData}
         handleVote={handleVote}
         handleDelete={handleDelete}
       />
-      <AddComment data={data} handleData={handleData} />
+      <AddComment currentUser={data.currentUser} addComment={addComment} />
     </div>
   );
 }

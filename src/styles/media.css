@@ -7,6 +7,7 @@
         --rem: 1rem;
     }
     .card {
+        grid-template-columns: auto 3fr 1fr;
         gap: calc(var(--rem) * 1.2) calc(var(--rem) * 1.4);
     }
 
@@ -30,7 +31,6 @@
 
     .card-modify {
         grid-area: 1 / 3 / 2 / 4;
-        justify-content: flex-end;
     }
 
     .card-vote * {

@@ -110,17 +110,25 @@ export default function App() {
   // addComment is to add a new comment with currentUser
   const addComment = (comment) => {
     console.log(comment);
-    // setData({
-    //   ...data,
-    //   comments: [
-    //     ...data.comments,
-    //     {
-    //       id: nanoid(),
-    //       content: comment,
-    //       createdAt: new Date().getDate()
-    //     },
-    //   ],
-    // });
+
+    const newData = {
+      ...data,
+      comments: [
+        ...data.comments,
+        {
+          id: nanoid(),
+          content: comment,
+          createdAt: "Today",
+          score: 0,
+          user: { ...data.currentUser },
+          replies: []
+        },
+      ],
+    }
+    setData(newData);
+
+    // Update also localStorage
+    localStorage.setItem("data", JSON.stringify(newData));
   };
 
   return (

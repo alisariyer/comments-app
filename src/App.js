@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 import "./styles/base.css";
 import "./styles/card.css";
 import "./styles/modal.css";
@@ -105,7 +106,18 @@ export default function App() {
   // addComment is to add a new comment with currentUser
   const addComment = (comment) => {
     console.log(comment);
-  }
+    // setData({
+    //   ...data,
+    //   comments: [
+    //     ...data.comments,
+    //     {
+    //       id: nanoid(),
+    //       content: comment,
+    //       createdAt: new Date().getDate()
+    //     },
+    //   ],
+    // });
+  };
 
   return (
     <div className="container">

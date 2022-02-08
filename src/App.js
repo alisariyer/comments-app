@@ -22,11 +22,6 @@ export default function App() {
 
   const [data, setData] = useState(getData());
 
-  const handleData = (data) => {
-    setData(data);
-    localStorage.setItem("data", JSON.stringify(data));
-  };
-
   const handleVote = (id, vote) => updateGlobal(id, vote, false);
 
   const handleDelete = (id) => updateGlobal(id, 0, true);
@@ -39,6 +34,10 @@ export default function App() {
     for (let i = 0; i < comments.length; i++) {
       if (comments[i].id === id) {
         if (!isDelete) {
+
+          // If the currentUser click on vote button ignore it
+          if (data.currentUser.username === comments[i].user.username) break;
+
           // If score is 0 and user click minus button do not make changing
           if (comments[i].score === 0 && vote === -1) break;
 
@@ -73,6 +72,11 @@ export default function App() {
         for (let j = 0; j < comments[i].replies.length; j++) {
           if (comments[i].replies[j].id === id) {
             if (!isDelete) {
+
+              // If the currentUser click on vote button ignore it
+              if (data.currentUser.username === comments[i].replies[j].user.username) break;
+
+
               // If score is 0 and user click minus button do not make changing
               if (comments[i].replies[j].score === 0 && vote === -1) break;
 

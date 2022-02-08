@@ -102,17 +102,17 @@ Use to push a little if a reply of comment
     font-weight: var(--fw-medium);
 }
 
-.card-modify, .card-vote, .card-reply, .card-delete {
+.card-modify, .card-vote, .card-reply, .card-delete, .card-edit {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.card-up, .card-down, .card-number, .card-delete, .card-reply, svg>path {
+.card-up, .card-down, .card-number, .card-delete, .card-reply, .card-edit, svg>path {
     transition: color var(--delay), fill var(--delay);
 }
 
-.card-delete, .card-reply {
+.card-delete, .card-reply, .card-edit {
     gap: calc(var(--rem) * .4);
 }
 
@@ -135,17 +135,18 @@ Use to push a little if a reply of comment
     fill: var(--c-pale-red);
 }
 
-.card-reply {
+.card-reply, .card-edit {
     font-weight: var(--fw-medium);
     color: var(--c-moderate-blue);
 }
 
-.card-reply:hover {
+.card-reply:hover, .card-edit:hover {
     color: var(--c-light-grayish-blue);
     cursor: pointer;
 }
 
-.card-reply:hover svg>path {
+.card-reply:hover svg>path,
+.card-edit:hover svg>path {
     fill: var(--c-light-grayish-blue);
 }
 

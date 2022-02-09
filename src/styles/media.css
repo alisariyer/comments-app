@@ -26,6 +26,7 @@
 
     .card-vote {
         grid-area: 1 / 1 / 4 / 2;
+        justify-content: space-around;
         flex-direction: column;
     }
 

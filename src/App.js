@@ -22,18 +22,28 @@ export default function App() {
 
   const [data, setData] = useState(getData());
 
-  const handleVote = (id, vote) => updateGlobal(id, vote, false);
+  // flags: 0 => Vote, 1 => Delete, 2 => Update
 
-  const handleDelete = (id) => updateGlobal(id, 0, true);
+  const handleVote = (id, vote) => updateGlobal(id, 0, vote);
 
-  // updateGlobal is combined to manage for both vote feature and delete feature
-  const updateGlobal = (id, vote, isDelete) => {
+  const handleDelete = (id) => updateGlobal(id, 1);
+
+  const handleUpdate = (id, updatedComment) => updateGlobal(id, 2, 0, updatedComment)
+
+  /**
+   * updateGlobal is to search comments and realize targeted operation
+   * @param {number} id is id of comment
+   * @param {number} flag is to define target vote, delete or update 0-Vote, 1-Delete, 2-Update
+   * @param {number} vote is increase or descrease vote number
+   * @param {string} updatedComment is used to update comment
+   */
+  const updateGlobal = (id, flag, vote, updatedComment) => {
     const comments = data.comments;
 
     // Use for loop after equality break loop for performance issue in case of bigger arrays
     for (let i = 0; i < comments.length; i++) {
       if (comments[i].id === id) {
-        if (!isDelete) {
+        if (flag === 0) {
 
           // If the currentUser click on vote button ignore it
           if (data.currentUser.username === comments[i].user.username) break;
@@ -46,9 +56,14 @@ export default function App() {
             ...comments[i],
             score: comments[i].score + vote,
           };
-        } else {
+        } else if (flag === 1) {
           // Else delete one element on i index
           comments.splice(i, 1);
+        } else if (flag === 2) {
+          comments[i] = {
+            ...comments[i],
+            content: updatedComment
+          }
         }
 
         // After changing comments set in data object and return it then so render page
@@ -71,7 +86,7 @@ export default function App() {
         // Check now replies
         for (let j = 0; j < comments[i].replies.length; j++) {
           if (comments[i].replies[j].id === id) {
-            if (!isDelete) {
+            if (flag === 0) {
 
               // If the currentUser click on vote button ignore it
               if (data.currentUser.username === comments[i].replies[j].user.username) break;
@@ -85,9 +100,14 @@ export default function App() {
                 ...comments[i].replies[j],
                 score: comments[i].replies[j].score + vote,
               };
-            } else {
+            } else if (flag === 1) {
               // Else delete one element on j index
               comments[i].replies.splice(j, 1);
+            } else if (flag === 2) {
+              comments[i].replies[j] = {
+                ...comments[i].replies[j],
+                content: updatedComment
+              }
             }
 
             // After changing comments set in data object and return it then so render page
@@ -137,6 +157,7 @@ export default function App() {
         data={data}
         handleVote={handleVote}
         handleDelete={handleDelete}
+        handleUpdate={handleUpdate}
       />
       <AddComment currentUser={data.currentUser} addComment={addComment} />
     </div>

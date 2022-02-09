@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Card({
   comment,
   currentUser,
   handleVote,
   handleDelete,
+  handleUpdate
 }) {
   const { content, createdAt, score, user, id } = comment;
   const image = user.image.png;
   const username = user.username;
+
+  // Use state for tracking edit status
+  const [isEditing, setIsEditing] = useState(false);
+
+  // To manage in case of edit mode
+  const [editedComment, setEditedComment] = useState(comment.content);
+
+  const handleInput = (e) => {
+    setEditedComment(e.target.value);
+  }
 
   // Show you text if it is for currentUser
   const youSpan =
@@ -40,7 +51,7 @@ export default function Card({
 
   const replyOrEdit =
     currentUser.username === username ? (
-      <div className="card-edit">
+      <div className="card-edit" role="button" onClick={() => setIsEditing(true)}>
         <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z"
@@ -62,11 +73,18 @@ export default function Card({
     );
 
   // Show repyling to as a tag inside comment
-  const replyingTo = comment.replyingTo ? (
+  const replyingTo = comment.replyingTo ?
+  (
     <span className="card-tag">@{comment.replyingTo}</span>
   ) : (
     ""
   );
+
+  const handleAfterUpdate = () => {
+    setIsEditing(false);
+    handleUpdate(comment.id, editedComment);
+    console.log("handleAfterUpdate")
+  }
 
   return (
     <div className="card">
@@ -78,10 +96,17 @@ export default function Card({
       </header>
 
       <section className="card-body">
-        <p>
+        {isEditing ? (
+          <textarea className="card-input edit" placeholder="Add a comment" value={editedComment} onChange={handleInput}></textarea>
+        ) : (
+          <p>
           {replyingTo}
           {content}
         </p>
+        ) 
+        }
+        
+
       </section>
 
       <div className="card-vote">
@@ -101,6 +126,7 @@ export default function Card({
           -
         </span>
       </div>
+      {isEditing && <button type="button" className="card-btn bottom" onClick={handleAfterUpdate}>UPDATE</button>}
       <div className="card-modify">{deleteButton}{replyOrEdit}</div>
     </div>
   );

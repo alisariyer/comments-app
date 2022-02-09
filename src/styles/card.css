@@ -76,7 +76,7 @@ Use to push a little if a reply of comment
 
 
 .card-vote {
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 4 / 1 / 5 / 2;
     background-color: var(--c-light-gray);
     border-radius: calc(var(--rem) * .7);
 }
@@ -118,7 +118,7 @@ Use to push a little if a reply of comment
 }
 
 .card-modify {
-    grid-area: 3 / 3 / 4 / 4;
+    grid-area: 4 / 3 / 5 / 4;
     gap: calc(var(--rem) * 1.2);
 }
 
@@ -176,6 +176,14 @@ Use grid display of card class
     border-color: var(--c-moderate-blue);
 }
 
+.card-input.edit {
+    resize: none;
+    width: 100%;
+    min-height: calc(var(--rem) * 11);
+    border-color: var(--c-moderate-blue);
+    line-height: 1.4;
+}
+
 .card-img-grid {
     grid-area: 3 / 1 / 4 / 2;
 }
@@ -193,4 +201,8 @@ Use grid display of card class
 
 .card-btn:active, .card-btn:hover {
     background-color: var(--c-light-grayish-blue);
+}
+
+.card-btn.bottom {
+    grid-area: 3 / 3 / 4 / 4;
 }

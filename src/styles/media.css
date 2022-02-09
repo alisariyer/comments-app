@@ -21,11 +21,11 @@
     }
 
     .card-body {
-        grid-area: 2 / 2 / 4 / 4;
+        grid-area: 2 / 2 / 5 / 4;
     }
 
     .card-vote {
-        grid-area: 1 / 1 / 4 / 2;
+        grid-area: 1 / 1 / 3 / 2;
         justify-content: space-around;
         flex-direction: column;
     }
@@ -50,6 +50,10 @@
     
     .card-btn {
         grid-area: 1 / 3 / 2 / 4;
+    }
+
+    .card-btn.bottom {
+        grid-area: 5 / 3 / 6 / 4;
     }
 
 }

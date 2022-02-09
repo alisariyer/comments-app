@@ -109,7 +109,6 @@ export default function App() {
 
   // addComment is to add a new comment with currentUser
   const addComment = (comment) => {
-    console.log(comment);
 
     const newData = {
       ...data,

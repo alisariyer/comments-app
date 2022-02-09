@@ -14,7 +14,7 @@ export default function AddComment({ currentUser, addComment }) {
     <form action="#" className="card" onSubmit={(e) => e.preventDefault()}>
         <textarea className="card-input" placeholder="Add a comment" value={comment} onChange={handleInput}/>
         <img src={currentUserImage} alt="" className="card-img card-img-grid" />
-        <button type="submit" className="card-btn" onClick={() => addComment(comment)}>SEND</button>
+        <button type="submit" className="card-btn" onClick={() => {addComment(comment); setComment('')}}>SEND</button>
     </form>
   )
 }

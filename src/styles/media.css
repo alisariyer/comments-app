@@ -7,7 +7,7 @@
         --rem: 1rem;
     }
     .card {
-        grid-template-columns: auto 3fr 1fr;
+        grid-template-columns: auto 3fr auto;
         gap: calc(var(--rem) * 1.2) calc(var(--rem) * 1.4);
     }
 
@@ -41,7 +41,6 @@
 
     .card-input {
         grid-area: 1 / 2 / 4 / 3;
-        width: calc(var(--rem) * 44);
     }
     
     .card-img-grid {

@@ -26,7 +26,28 @@ export default function App() {
 
   const handleVote = (id, vote) => updateGlobal(id, 0, vote);
 
-  const handleDelete = (id) => updateGlobal(id, 1);
+  // state for modal situation
+  const [isModal, setModal] = useState(false);
+
+  // Keep Id of the item wanted to be deleted
+  const [toBeDeleted, setToBeDeleted] = useState(null);
+
+  // When click on delete button show modal end get id of the item in question
+  const handleDelete = (id) => {
+    setModal(true);
+    setToBeDeleted(id);
+  }
+
+  // When user click on yes or no, delete item and reset deletedItem state and hide modal
+  const handleChoice = (choice) => {
+    console.log(choice, toBeDeleted);
+    if (choice) {
+      if (toBeDeleted) updateGlobal(toBeDeleted, 1);
+    } else {
+      setToBeDeleted(null);
+    }
+    setModal(false);
+  }
 
   const handleUpdate = (id, updatedComment) => updateGlobal(id, 2, 0, updatedComment)
 
@@ -152,7 +173,7 @@ export default function App() {
 
   return (
     <div className="container">
-      {/* <Modal /> */}
+      {isModal && <Modal handleChoice={handleChoice}/>}
       <CardContainer
         data={data}
         handleVote={handleVote}

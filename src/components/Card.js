@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import CardHeader from './CardHeader';
+import CardHeader from "./CardHeader";
+import CardVote from "./CardVote";
 
 export default function Card({
   comment,
   currentUser,
   handleVote,
   handleDelete,
-  handleUpdate
+  handleUpdate,
 }) {
-  const { content, score, user, id } = comment;
+  const { content, user, id } = comment;
   const username = user.username;
 
   // Use state for tracking edit status
@@ -19,9 +20,7 @@ export default function Card({
 
   const handleInput = (e) => {
     setEditedComment(e.target.value);
-  }
-
-
+  };
 
   // Show deleteButton if it is currentUser's own comment
   const deleteButton =
@@ -45,7 +44,11 @@ export default function Card({
 
   const replyOrEdit =
     currentUser.username === username ? (
-      <div className="card-edit" role="button" onClick={() => setIsEditing(true)}>
+      <div
+        className="card-edit"
+        role="button"
+        onClick={() => setIsEditing(true)}
+      >
         <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z"
@@ -67,8 +70,7 @@ export default function Card({
     );
 
   // Show repyling to as a tag inside comment
-  const replyingTo = comment.replyingTo ?
-  (
+  const replyingTo = comment.replyingTo ? (
     <span className="card-tag">@{comment.replyingTo}</span>
   ) : (
     ""
@@ -77,8 +79,8 @@ export default function Card({
   const handleAfterUpdate = () => {
     setIsEditing(false);
     handleUpdate(comment.id, editedComment);
-    console.log("handleAfterUpdate")
-  }
+    console.log("handleAfterUpdate");
+  };
 
   return (
     <div className="card">
@@ -86,37 +88,35 @@ export default function Card({
 
       <section className="card-body">
         {isEditing ? (
-          <textarea className="card-input edit" placeholder="Add a comment" value={editedComment} onChange={handleInput}></textarea>
+          <textarea
+            className="card-input edit"
+            placeholder="Add a comment"
+            value={editedComment}
+            onChange={handleInput}
+          ></textarea>
         ) : (
           <p>
-          {replyingTo}
-          {content}
-        </p>
-        ) 
-        }
-        
-
+            {replyingTo}
+            {content}
+          </p>
+        )}
       </section>
 
-      <div className="card-vote">
-        <span
-          className="card-up"
-          role="button"
-          onClick={() => handleVote(id, 1)}
+      <CardVote comment={comment} handleVote={handleVote} />
+      
+      {isEditing && (
+        <button
+          type="button"
+          className="card-btn bottom"
+          onClick={handleAfterUpdate}
         >
-          +
-        </span>
-        <span className="card-number">{score}</span>
-        <span
-          className="card-down"
-          role="button"
-          onClick={() => handleVote(id, -1)}
-        >
-          -
-        </span>
+          UPDATE
+        </button>
+      )}
+      <div className="card-modify">
+        {deleteButton}
+        {replyOrEdit}
       </div>
-      {isEditing && <button type="button" className="card-btn bottom" onClick={handleAfterUpdate}>UPDATE</button>}
-      <div className="card-modify">{deleteButton}{replyOrEdit}</div>
     </div>
   );
 }

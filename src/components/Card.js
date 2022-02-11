@@ -79,7 +79,6 @@ export default function Card({
   const handleAfterUpdate = () => {
     setIsEditing(false);
     handleUpdate(comment.id, editedComment);
-    console.log("handleAfterUpdate");
   };
 
   return (

@@ -3,8 +3,7 @@ import Card from "./Card";
 
 export default function CardContainer({data, handleVote, handleDelete, handleUpdate}) {
 
-  const cards = data.comments.map((comment) => {
-
+  const cards = data.comments.sort((a, b) => b.score - a.score).map((comment) => {
     return (
       <div key={comment.id}>
         <Card key={comment.id} comment={comment} currentUser={data.currentUser} handleVote={handleVote} handleDelete={handleDelete} handleUpdate={handleUpdate}/>

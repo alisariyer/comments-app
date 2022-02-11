@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CardHeader from './CardHeader';
 
 export default function Card({
   comment,
@@ -7,8 +8,7 @@ export default function Card({
   handleDelete,
   handleUpdate
 }) {
-  const { content, createdAt, score, user, id } = comment;
-  const image = user.image.png;
+  const { content, score, user, id } = comment;
   const username = user.username;
 
   // Use state for tracking edit status
@@ -21,13 +21,7 @@ export default function Card({
     setEditedComment(e.target.value);
   }
 
-  // Show you text if it is for currentUser
-  const youSpan =
-    currentUser.username === username ? (
-      <span className="card-me">You</span>
-    ) : (
-      ""
-    );
+
 
   // Show deleteButton if it is currentUser's own comment
   const deleteButton =
@@ -88,12 +82,7 @@ export default function Card({
 
   return (
     <div className="card">
-      <header className="card-header">
-        <img src={image} alt="" className="card-img" />
-        <h3 className="card-user">{username}</h3>
-        {youSpan}
-        <span className="card-date">{createdAt}</span>
-      </header>
+      <CardHeader comment={comment} currentUser={currentUser} />
 
       <section className="card-body">
         {isEditing ? (

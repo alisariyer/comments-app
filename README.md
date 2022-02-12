@@ -38,6 +38,8 @@ Users should be able to:
 - Solution URL: [Project solution link](https://github.com/alisariyer/comments-app)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/73f17a7f-5ba9-4cc3-aeba-a8bc67e9b7e2/deploy-status)](https://app.netlify.com/sites/compassionate-mclean-1d3ac8/deploys)
+
 ## My process
 
 ### Built with

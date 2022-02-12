@@ -53,34 +53,33 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I practices and learn CSS Grid layout, create two level structure by using same component and conditional rendering, also how to sort a JSON data by some of properties and filter, find etc.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.card-header {
+    grid-area: 1 / 1 / 2 / span 3;
+}
+.card-img {
+    width: calc(var(--rem) * 3.6);
 }
 ```
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+const cards = data.comments
+    .sort((a, b) => b.score - a.score)
+    .map((comment) => {
+      return ("Codes")
+})
 ```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+I'll focus in React.js deeply to make more modular application and also practice JavaScript challanges to have a good experience on JS. Grid CSS also I'll try to use more to learn well.
 
 ### Useful resources
 https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values
 https://stackoverflow.com/questions/586182/how-to-insert-an-item-into-an-array-at-a-specific-index-javascript
 https://stackoverflow.com/questions/37141425/filter-return-true-or-false
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 
@@ -91,4 +90,4 @@ https://stackoverflow.com/questions/37141425/filter-return-true-or-false
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+Thank you for excellent React courses to [@bobziroll](https://www.twitter.com/bobziroll) and [@eveporcello](https://www.twitter.com/eveporcello).

@@ -87,7 +87,6 @@ https://stackoverflow.com/questions/37141425/filter-return-true-or-false
 - Frontend Mentor - [@alisariyer](https://www.frontendmentor.io/profile/alisariyer)
 - Twitter - [@sariyer_ali](https://www.twitter.com/sariyer_ali)
 
-
 ## Acknowledgments
 
 Thank you for excellent React courses to [@bobziroll](https://www.twitter.com/bobziroll) and [@eveporcello](https://www.twitter.com/eveporcello).

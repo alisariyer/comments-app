@@ -26,13 +26,13 @@ export default function App() {
 
   const handleVote = (id, vote) => updateGlobal(id, 0, vote);
 
-  // state for modal situation
+  // state for modal
   const [isModal, setModal] = useState(false);
 
   // Keep Id of the item wanted to be deleted
   const [toBeDeleted, setToBeDeleted] = useState(null);
 
-  // Check in any edit mode
+  // Check in case of any edit mode
   const [editMode, setEditMode] = useState(false);
 
   const handleEditMode = (bool) => setEditMode(bool);
@@ -59,7 +59,7 @@ export default function App() {
   /**
    * updateGlobal is to search comments and realize targeted operation
    * @param {number} id is id of comment
-   * @param {number} flag is to define target vote, delete or update 0-Vote, 1-Delete, 2-Update
+   * @param {number} flag is to define target vote, delete or update: 0-Vote, 1-Delete, 2-Update
    * @param {number} vote is increase or descrease vote number
    * @param {string} updatedComment is used to update comment
    */
@@ -155,7 +155,6 @@ export default function App() {
   };
 
   // addComment is to add a new comment with currentUser
-  // If an id is returned this means it is a reply comment so add it under this id's owner
   const addComment = (comment) => {
     const newData = {
       ...data,
@@ -171,13 +170,13 @@ export default function App() {
         },
       ],
     };
-
+    
     setData(newData);
-
+    
     // Update also localStorage
     localStorage.setItem("data", JSON.stringify(newData));
   };
-
+  
   const insertReply = (comment, id) => {
 
     // To check repyling for first or second level comment
@@ -187,9 +186,10 @@ export default function App() {
     for (let i=0; i < data.comments.length; i++) {
       mainUser = data.comments[i].id === id;
       replyingUser = data.comments[i].replies.find(reply => reply.id === id)
+
       if (mainUser || replyingUser) {
-        console.log(data.comments[i].replies.filter(reply => reply.id === id))
         let replyingResult = mainUser ? data.comments[i].user.username : data.comments[i].replies.filter(reply => reply.id === id)[0].user.username;
+
         data.comments[i].replies.push({
           id: nanoid(),
           content: comment,
@@ -198,6 +198,7 @@ export default function App() {
           replyingTo: replyingResult,
           user: data.currentUser
         })
+        
         setData(data);
         localStorage.setItem("data", JSON.stringify(data));
         break;

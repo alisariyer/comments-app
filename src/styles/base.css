@@ -1,7 +1,5 @@
 /* 
     Developer: Ali Sariyer
-    CSS Name convention: BEM (Block element modifier)
-
 */
 :root {
     --c-moderate-blue: hsl(238, 40%, 52%);
@@ -20,7 +18,7 @@
     --delay: .3s;
     font-size: 62.5%;
 
-    /* To use resize elements by this reference - Responsive Design */
+    /* To resize elements by this reference - Responsive Design */
     --rem: .9rem;
 }
 
@@ -54,5 +52,5 @@ button, a {
 
 .container {
     margin: 0 auto;
-    max-width: calc(var(--rem) * 65); 
+    max-width: calc(var(--rem) * 70); 
 }

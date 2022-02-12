@@ -16,7 +16,7 @@ export default function Card({
   // Use state for tracking edit status
   const [isEditing, setIsEditing] = useState(false);
 
-  // To manage in case of edit mode
+  // To keep edited comment
   const [editedComment, setEditedComment] = useState(comment.content);
 
   const handleInput = (e) => {

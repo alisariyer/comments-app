@@ -11,6 +11,7 @@ export default function CardContainer({
   editMode,
   handleEditMode,
 }) {
+  
   const [replyId, setReplyId] = useState(null);
 
   const handleReply = (id) => {

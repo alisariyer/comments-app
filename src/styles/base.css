@@ -27,6 +27,11 @@
     outline: none;
 }
 
+::selection {
+    background-color: var(--c-moderate-blue);
+    color: white;
+}
+
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -48,6 +53,10 @@ button, a {
     border: none;
     border-radius: calc(var(--rem) * .7);
     transition: background-color var(--delay);
+}
+
+button, a, span {
+    user-select: none;
 }
 
 .container {

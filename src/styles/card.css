@@ -17,6 +17,14 @@ Use grid display because of specific changing between desktop and mobile ui
     border-radius: calc(var(--rem) * .5);
     padding: calc(var(--rem) * 2);
     margin-bottom: calc(var(--rem) * 2);
+    animation: soft .5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes soft {
+    100% {
+        opacity: 1;
+    }
 }
 
 /*

@@ -10,17 +10,10 @@ import Modal from "./components/Modal";
 import defaultData from "./data.json";
 
 export default function App() {
-  // Check localStorage if contains data object text version otherwise set in default json object in form of string
-  const getData = () => {
-    const data = JSON.parse(localStorage.getItem("data"));
-    if (!data) {
-      localStorage.setItem("data", JSON.stringify(defaultData));
-      return defaultData;
-    }
-    return data;
-  };
 
-  const [data, setData] = useState(getData());
+  // Get default data if localStorage has no data
+  // To avoid lazy state used arrow function inside
+  const [data, setData] = useState(() => JSON.parse(localStorage.getItem("data")) || defaultData);
 
   // flags: 0 => Vote, 1 => Delete, 2 => Update
 

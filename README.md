@@ -10,6 +10,7 @@ This is a solution to the [Interactive comments section challenge on Frontend Me
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [Depolyment](#deploy-process)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
@@ -50,6 +51,15 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+
+### Deploy process
+
+- Install gh-pages from terminal: npm install gh-pages **--save-dev**
+- Add "homepage": "https://{username}.github.io" into package.json file after name, version etc. values
+- In package.json file in scripts value add again a key-value pair as:
+- "predeploy": "npm run build"
+- "deploy": "gh-pages -d build"
+-
 
 ### What I learned
 

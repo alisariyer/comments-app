@@ -54,12 +54,14 @@ Users should be able to:
 
 ### Deploy process
 
-- Install gh-pages from terminal: npm install gh-pages **--save-dev**
-- Add "homepage": "https://{username}.github.io" into package.json file after name, version etc. values
-- In package.json file in scripts value add again a key-value pair as:
-- "predeploy": "npm run build"
-- "deploy": "gh-pages -d build"
--
+1. Install gh-pages from terminal: npm install gh-pages **--save-dev**
+2. Add "homepage": "https://{username}.github.io" into package.json file after name, version etc. values
+3. In package.json file in scripts value add again a key-value pair as:
+4. "predeploy": "npm run build"
+5. "deploy": "gh-pages -d build"
+6. If you've not initilalized your git repository: "git init" **then** "git remote add origin your-github-repository-url.git"
+7. Then run from terminal: "npm run deploy"
+8. Choose in github pages as branch: gh-pages then publish.
 
 ### What I learned
 

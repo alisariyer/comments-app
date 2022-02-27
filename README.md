@@ -37,7 +37,8 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Project solution link](https://github.com/alisariyer/comments-app)
-- Live Site URL: [Live site url](https://compassionate-mclean-1d3ac8.netlify.app/)
+- Live Site on Github Pages: [Live site url](https://alisariyer.github.io/comments-app/)
+- Live Site on Netlify: [Live site url](https://compassionate-mclean-1d3ac8.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/73f17a7f-5ba9-4cc3-aeba-a8bc67e9b7e2/deploy-status)](https://app.netlify.com/sites/compassionate-mclean-1d3ac8/deploys)
 
